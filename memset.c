@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void *s21_memset(void *str, int c, size_t n);
-void print_array(const void *arr, size_t n);
+typedef long unsigned s21_size_t;
+
+void *s21_memset(void *str, int c, s21_size_t n);
+void print_array(const void *arr, s21_size_t n);
 
 int main()
 {
@@ -15,7 +17,7 @@ int main()
     return 0;
 }
 
-void *s21_memset(void *str, int c, size_t n)
+void *s21_memset(void *str, int c, s21_size_t n)
 {
     for (int x = 0; x < n; x += 1) {
         ((char *)str)[x] = c;
@@ -23,7 +25,7 @@ void *s21_memset(void *str, int c, size_t n)
     return str;
 }
 
-void print_array(const void *arr, size_t n)
+void print_array(const void *arr, s21_size_t n)
 {
     const char *arr_ptr = arr;
 
