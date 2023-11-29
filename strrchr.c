@@ -38,7 +38,7 @@ void test() {
 
   char *result = s21_strrchr(str, c);
 
-  if (result != NULL) {
+  if (result != s21_NULL) {
     printf("%c %ld\n", c, result - str);
   } else {
     printf("%c", c);
