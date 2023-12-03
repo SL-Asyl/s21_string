@@ -1,3 +1,5 @@
+//уточнить, возможно ли два ретюрна в таком виде
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,14 +8,14 @@ void *s21_memmove(void *dest, const void *src, size_t n) {
     char *dest_ptr = (char *)dest;
     const char *src_ptr = (const char *)src;
 
-    if (dest_ptr == src_ptr) {
-        return dest;
-    }
+    // if (dest_ptr == src_ptr || n == 0) {
+    //     return dest;
+    // }
 
     if (dest_ptr < src_ptr && dest_ptr + n > src_ptr) {
         // Перекрытие: копирование с начала в конец
-        for (size_t i = 0; i < n; i++) {
-            dest_ptr[n - i - 1] = src_ptr[n - i - 1];
+        for (size_t i = n; i > 0; i--) {
+            dest_ptr[i - 1] = src_ptr[i - 1];
         }
     } else {
         // Без перекрытия или перекрытие с src_ptr > dest_ptr: копирование с начала в конец
